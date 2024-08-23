@@ -5,7 +5,7 @@
     },
     "relaychain": {
         "chain": "rococo-local",
-        "default_command": "tmp/polkadot",
+        "default_command": "bin-stable2407/polkadot",
         "default_args": ["--no-hardware-benchmarks", "-lparachain=debug", "--database=paritydb", "--no-beefy"],
         "genesis": {
             "runtimeGenesis": {
@@ -54,49 +54,50 @@
                     "name": "FullNode-1000",
                     "validator": false,
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"],
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"],
                     "ws_port": 9948
                 },
                 {
                     "name": "Collator1000-01",
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
                 },
                 {
                     "name": "Collator1000-02",
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
                 },
                 {
                     "name": "Collator2000-01",
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
                 },
                 {
                     "name": "Collator2000-02",
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
-                },
-                {
-                    "name": "Collator2001-01",
-                    "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
-                },
-                {
-                    "name": "Collator2001-02",
-                    "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
                 },
                 {
                     "name": "Collator2002-01",
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
                 },
                 {
                     "name": "Collator2002-02",
                     "command": "../target/release/tanssi-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"]
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
+                },
+                {
+                    "name": "Collator2003-01",
+                    "command": "../target/release/tanssi-node",
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
+                },
+                {
+                    "name": "Collator2003-02",
+                    "command": "../target/release/tanssi-node",
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"]
                 }
+
             ]
         },
         {
@@ -107,23 +108,9 @@
                     "name": "FullNode-2000",
                     "validator": false,
                     "command": "../target/release/container-chain-simple-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"],
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"],
                     "ws_port": 9949,
                     "p2p_port": 33049
-                }
-            ]
-        },
-        {
-            "id": 2001,
-            "chain_spec_path": "specs/template-container-2001.json",
-            "collators": [
-                {
-                    "name": "FullNode-2001",
-                    "validator": false,
-                    "command": "../target/release/container-chain-frontier-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"],
-                    "ws_port": 9950,
-                    "p2p_port": 33050
                 }
             ]
         },
@@ -135,12 +122,27 @@
                     "name": "FullNode-2002",
                     "validator": false,
                     "command": "../target/release/container-chain-simple-node",
-                    "args": ["--no-hardware-benchmarks", "--database=paritydb", "--wasmtime-precompiled=wasm"],
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"],
+                    "ws_port": 9950,
+                    "p2p_port": 33050
+                }
+            ]
+        },
+        {
+            "id": 2003,
+            "chain_spec_path": "specs/template-container-2003.json",
+            "collators": [
+                {
+                    "name": "FullNode-2003",
+                    "validator": false,
+                    "command": "/Users/nikitakhateev/projects/polkadot-runtime-template/generic-template/target/release/generic-template-node",
+                    "args": ["--no-hardware-benchmarks", "--database=paritydb"],
                     "ws_port": 9951,
                     "p2p_port": 33051
                 }
             ]
         }
+
     ],
     "types": {
         "Header": {
