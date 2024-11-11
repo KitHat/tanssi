@@ -32,7 +32,8 @@ mod tests;
 pub use {
     crate::consensus_orchestrator::OrchestratorAuraWorkerAuxData,
     cumulus_primitives_core::ParaId,
-    cumulus_relay_chain_interface::{call_remote_runtime_function, RelayChainInterface},
+    // there was an reexport of call_remote_runtime_function, if you need it, reintroduce it
+    cumulus_relay_chain_interface::RelayChainInterface,
     dc_orchestrator_chain_interface::OrchestratorChainInterface,
     dp_consensus::TanssiAuthorityAssignmentApi,
     manual_seal::{
