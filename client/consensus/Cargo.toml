@@ -91,3 +91,6 @@ sp-keyring = { workspace = true }
 sp-tracing = { workspace = true }
 substrate-test-runtime-client = { workspace = true }
 tempfile = { workspace = true }
+
+[features]
+runtime-benchmarks = ["pallet-registrar-runtime-api/runtime-benchmarks"]
