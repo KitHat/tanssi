@@ -1,6 +1,6 @@
 [package]
 name = "tp-xcm-core-buyer"
-authors = { workspace = true }
+authors = [ "Moondance Labs" ]
 description = "XCM Core Buyer Primitives"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -10,13 +10,13 @@ version = "0.1.0"
 workspace = true
 
 [dependencies]
-frame-support = { workspace = true }
-parity-scale-codec = { workspace = true }
-scale-info = { workspace = true }
-sp-keystore = { workspace = true }
-sp-runtime = { workspace = true }
-sp-std = { workspace = true }
-tp-traits = { workspace = true }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+parity-scale-codec = { version = "3.0.0", default-features = false, features = [ "derive", "max-encoded-len" ] }
+scale-info = { version = "2.10.0", default-features = false }
+sp-keystore = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-std = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+tp-traits = { path = "../traits", default-features = false }
 
 [features]
 default = [ "std" ]

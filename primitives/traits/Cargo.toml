@@ -1,6 +1,6 @@
 [package]
 name = "tp-traits"
-authors = { workspace = true }
+authors = [ "Moondance Labs" ]
 description = "Tanssi primitive traits"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -10,20 +10,20 @@ version = "0.1.0"
 workspace = true
 
 [dependencies]
-dp-chain-state-snapshot = { workspace = true }
-dp-container-chain-genesis-data = { workspace = true }
-frame-support = { workspace = true }
-impl-trait-for-tuples = { workspace = true }
-macro_rules_attribute = { workspace = true }
-parity-scale-codec = { workspace = true }
-scale-info = { workspace = true }
-serde = { workspace = true }
-sp-core = { workspace = true }
-sp-runtime = { workspace = true }
-sp-std = { workspace = true }
+dp-chain-state-snapshot = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-branch-stable2412", default-features = false }
+dp-container-chain-genesis-data = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-branch-stable2412", default-features = false }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+impl-trait-for-tuples = "0.2.2"
+macro_rules_attribute = { version = "0.2.0" }
+parity-scale-codec = { version = "3.0.0", default-features = false, features = [ "derive", "max-encoded-len" ] }
+scale-info = { version = "2.10.0", default-features = false }
+serde = { version = "1.0.197", default-features = false }
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-std = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 
 # Cumulus
-cumulus-primitives-core = { workspace = true }
+cumulus-primitives-core = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 
 [features]
 default = [ "std" ]

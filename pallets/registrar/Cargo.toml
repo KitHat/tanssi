@@ -1,6 +1,6 @@
 [package]
 name = "pallet-registrar"
-authors = { workspace = true }
+authors = [ "Moondance Labs" ]
 description = "ParaRegistrar pallet that allows to register and deregister ParaIds"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -13,31 +13,31 @@ targets = [ "x86_64-unknown-linux-gnu" ]
 workspace = true
 
 [dependencies]
-cumulus-primitives-core = { workspace = true }
-dp-chain-state-snapshot = { workspace = true }
-dp-container-chain-genesis-data = { workspace = true }
-dp-core = { workspace = true }
-frame-benchmarking = { workspace = true, optional = true }
-frame-support = { workspace = true }
-frame-system = { workspace = true }
-hex-literal = { workspace = true }
-log = { workspace = true }
-parity-scale-codec = { workspace = true }
-polkadot-runtime-common = { workspace = true }
-scale-info = { workspace = true }
-serde = { workspace = true, features = [ "derive" ] }
-sp-core = { workspace = true }
-sp-runtime = { workspace = true }
-sp-std = { workspace = true }
-sp-trie = { workspace = true }
-tp-traits = { workspace = true }
+cumulus-primitives-core = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+dp-core = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503", default-features = false }
+dp-chain-state-snapshot = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503", default-features = false }
+dp-container-chain-genesis-data = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503", default-features = false }
+frame-benchmarking = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false, optional = true }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+frame-system = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+hex-literal = { version = "1.0.0" }
+log = { version = "0.4.22", default-features = false }
+parity-scale-codec = { version = "3.0.0", default-features = false, features = [ "derive", "max-encoded-len" ] }
+polkadot-runtime-common = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+scale-info = { version = "2.10.0", default-features = false }
+serde = { version = "1.0.197", default-features = false, features = [ "derive" ] }
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-std = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-trie = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+tp-traits = { path = "../../primitives/traits", default-features = false }
 
 [dev-dependencies]
-cumulus-test-relay-sproof-builder = { workspace = true }
-pallet-balances = { workspace = true }
-sp-core = { workspace = true }
-sp-io = { workspace = true }
-sp-runtime = { workspace = true }
+cumulus-test-relay-sproof-builder = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+pallet-balances = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-io = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 
 [features]
 default = [ "std" ]

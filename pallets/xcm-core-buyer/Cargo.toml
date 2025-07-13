@@ -1,6 +1,6 @@
 [package]
 name = "pallet-xcm-core-buyer"
-authors = { workspace = true }
+authors = [ "Moondance Labs" ]
 description = "Allows collators to buy parathread cores on demand"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -14,37 +14,39 @@ workspace = true
 
 [dependencies]
 
-dp-core = { workspace = true }
-log = { workspace = true }
-serde = { workspace = true }
-tp-traits = { workspace = true }
-tp-xcm-core-buyer = { workspace = true }
+dp-core = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503", default-features = false }
+log = { version = "0.4.22", default-features = false }
+serde = { version = "1.0.197", default-features = false }
+tp-traits = { path = "../../primitives/traits", default-features = false }
+tp-xcm-core-buyer = { path = "../../primitives/xcm-core-buyer", default-features = false }
 
 # Polkadot
-pallet-xcm = { workspace = true }
-sp-consensus-slots = { workspace = true }
-sp-keystore = { workspace = true }
-xcm = { workspace = true }
+
+sp-consensus-slots = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-keystore = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+xcm = { package = "staging-xcm", git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 
 # Substrate
-frame-benchmarking = { workspace = true, optional = true }
-frame-support = { workspace = true }
-frame-system = { workspace = true }
-parity-scale-codec = { workspace = true }
-scale-info = { workspace = true }
-sp-core = { workspace = true }
-sp-io = { workspace = true }
-sp-runtime = { workspace = true }
-sp-std = { workspace = true }
+frame-benchmarking = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false, optional = true }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+frame-system = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+parity-scale-codec = { version = "3.0.0", default-features = false, features = [ "derive", "max-encoded-len" ] }
+scale-info = { version = "2.10.0", default-features = false }
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-io = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-std = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+pallet-xcm = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 
 # Nimbus
-nimbus-primitives = { workspace = true }
+nimbus-primitives = { git = "https://github.com/OpenZeppelin/moonkit", branch = "polkadot-branch-stable2412", default-features = false }
 
 [dev-dependencies]
-num-traits = { workspace = true }
-pallet-balances = { workspace = true, features = [ "std" ] }
-similar-asserts = { workspace = true }
-sp-io = { workspace = true, features = [ "std" ] }
+bounded-collections = { version = "0.1.8", default-features = false }
+num-traits = { version = "0.2.8" }
+pallet-balances = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false, features = [ "std" ] }
+similar-asserts = { version = "1.1.0" }
+sp-io = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false, features = [ "std" ] }
 
 [features]
 default = [ "std" ]
@@ -68,7 +70,6 @@ std = [
 	"sp-std/std",
 	"tp-traits/std",
 	"tp-xcm-core-buyer/std",
-	"xcm/std",
 	"xcm/std",
 ]
 runtime-benchmarks = [

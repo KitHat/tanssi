@@ -1,6 +1,6 @@
 [package]
 name = "pallet-registrar-runtime-api"
-authors = { workspace = true }
+authors = [ "Moondance Labs" ]
 description = "Runtime API definition of pallet-registrar"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -13,13 +13,13 @@ targets = [ "x86_64-unknown-linux-gnu" ]
 workspace = true
 
 [dependencies]
-dp-container-chain-genesis-data = { workspace = true }
-frame-support = { workspace = true }
-pallet-registrar = { workspace = true }
-parity-scale-codec = { workspace = true }
-scale-info = { workspace = true }
-sp-api = { workspace = true }
-tp-traits = { workspace = true }
+dp-container-chain-genesis-data = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503", default-features = false }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+pallet-registrar = { path = "../../registrar", default-features = false }
+parity-scale-codec = { version = "3.0.0", default-features = false, features = [ "derive", "max-encoded-len" ] }
+scale-info = { version = "2.10.0", default-features = false }
+sp-api = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+tp-traits = { path = "../../../primitives/traits", default-features = false }
 
 [features]
 default = [ "std" ]

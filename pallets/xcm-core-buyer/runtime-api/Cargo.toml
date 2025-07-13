@@ -1,6 +1,6 @@
 [package]
 name = "pallet-xcm-core-buyer-runtime-api"
-authors = { workspace = true }
+authors = [ "Moondance Labs" ]
 description = "Runtime api for xcm-core-buyer runtime api"
 edition = "2021"
 license = "GPL-3.0-only"
@@ -13,17 +13,17 @@ targets = [ "x86_64-unknown-linux-gnu" ]
 workspace = true
 
 [dependencies]
-frame-support = { workspace = true }
-pallet-xcm-core-buyer = { workspace = true }
-parity-scale-codec = { workspace = true }
-scale-info = { workspace = true }
-serde = { workspace = true, optional = true, features = [ "derive" ] }
-sp-api = { workspace = true }
-sp-consensus-slots = { workspace = true }
-sp-runtime = { workspace = true }
-sp-std = { workspace = true }
-thiserror = { workspace = true, optional = true }
-tp-xcm-core-buyer = { workspace = true }
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+pallet-xcm-core-buyer = { path = "../../xcm-core-buyer", default-features = false }
+parity-scale-codec = { version = "3.0.0", default-features = false, features = [ "derive", "max-encoded-len" ] }
+scale-info = { version = "2.10.0", default-features = false }
+serde = { version = "1.0.197", default-features = false, optional = true, features = [ "derive" ] }
+sp-api = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-consensus-slots = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+sp-std = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
+thiserror = { version = "2.0.12", optional = true }
+tp-xcm-core-buyer = { path = "../../../primitives/xcm-core-buyer", default-features = false }
 
 [features]
 default = [ "std" ]
