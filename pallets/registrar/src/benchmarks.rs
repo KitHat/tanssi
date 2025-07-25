@@ -70,7 +70,7 @@ mod benchmarks {
         storage: BoundedVec<ContainerChainGenesisDataItem, ConstU32<655360>>,
     ) -> ContainerChainGenesisData {
         ContainerChainGenesisData {
-            storage,
+            storage: storage.to_vec(),
             name: Default::default(),
             id: Default::default(),
             fork_id: Default::default(),
