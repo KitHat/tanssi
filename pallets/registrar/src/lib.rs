@@ -783,8 +783,7 @@ pub mod pallet {
             };
 
             let mut storage = vec![];
-            storage
-                .push((b":code".to_vec(), vec![1; 10]).into());
+            storage.push((b":code".to_vec(), vec![1; 10]).into());
             let genesis_data = ContainerChainGenesisData {
                 storage,
                 name: Default::default(),
@@ -1493,6 +1492,7 @@ impl RegistrarHooks for () {}
 
 pub struct EnsureSignedByManager<T>(sp_std::marker::PhantomData<T>);
 
+#[cfg(feature = "runtime-benchmarks")]
 impl<T> EnsureOriginWithArg<T::RuntimeOrigin, ParaId> for EnsureSignedByManager<T>
 where
     T: Config,
@@ -1517,5 +1517,27 @@ where
         let manager = Pallet::<T>::benchmarks_get_or_create_para_manager(para_id);
 
         Ok(frame_system::RawOrigin::Signed(manager).into())
+    }
+}
+
+#[cfg(not(feature = "runtime-benchmarks"))]
+impl<T> EnsureOriginWithArg<T::RuntimeOrigin, ParaId> for EnsureSignedByManager<T>
+where
+    T: Config,
+{
+    type Success = T::AccountId;
+
+    fn try_origin(
+        o: T::RuntimeOrigin,
+        para_id: &ParaId,
+    ) -> Result<Self::Success, T::RuntimeOrigin> {
+        let signed_account =
+            <frame_system::EnsureSigned<_> as EnsureOrigin<_>>::try_origin(o.clone())?;
+
+        if !Pallet::<T>::is_para_manager(para_id, &signed_account) {
+            return Err(frame_system::RawOrigin::Signed(signed_account).into());
+        }
+
+        Ok(signed_account)
     }
 }
