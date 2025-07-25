@@ -1515,7 +1515,6 @@ where
         Ok(signed_account)
     }
 
-    #[cfg(feature = "runtime-benchmarks")]
     fn try_successful_origin(para_id: &ParaId) -> Result<T::RuntimeOrigin, ()> {
         let manager = Pallet::<T>::benchmarks_get_or_create_para_manager(para_id);
 
