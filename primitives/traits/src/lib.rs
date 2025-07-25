@@ -455,7 +455,6 @@ pub trait RegistrarHandler<AccountId> {
     fn deregister(id: ParaId);
     fn deregister_weight() -> Weight;
 
-    #[cfg(feature = "runtime-benchmarks")]
     fn bench_head_data() -> Option<HeadData> {
         None
     }
@@ -463,7 +462,6 @@ pub trait RegistrarHandler<AccountId> {
     fn add_trusted_validation_code(_code: Vec<u8>) {}
     #[cfg(feature = "runtime-benchmarks")]
     fn registrar_new_session(_session: u32) {}
-    #[cfg(feature = "runtime-benchmarks")]
     fn prepare_chain_registration(_id: ParaId, _who: AccountId) {}
 }
 
