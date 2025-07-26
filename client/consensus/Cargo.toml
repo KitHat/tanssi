@@ -39,8 +39,8 @@ substrate-prometheus-endpoint = { git = "https://github.com/paritytech/polkadot-
 # Own
 dc-orchestrator-chain-interface = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503" }
 dp-consensus = { git = "https://github.com/OpenZeppelin/dancekit", branch = "polkadot-stable2503", default-features = false, features = [ "std" ] }
-pallet-registrar-runtime-api = { path = "../../pallets/registrar/runtime-api", default-features = false, features = [ "std" ] }
-pallet-xcm-core-buyer-runtime-api = { path = "../../pallets/xcm-core-buyer/runtime-api", default-features = false, features = [ "std" ] }
+pallet-registrar-runtime-api = { path = "../../pallets/registrar/runtime-api", default-features = false, features = [ "std", "runtime-benchmarks" ] }
+pallet-xcm-core-buyer-runtime-api = { path = "../../pallets/xcm-core-buyer/runtime-api", default-features = false, features = [ "std", "runtime-benchmarks" ] }
 tp-traits = { path = "../../primitives/traits", default-features = false }
 tp-xcm-core-buyer = { path = "../../primitives/xcm-core-buyer", default-features = false, features = [ "std" ] }
 
