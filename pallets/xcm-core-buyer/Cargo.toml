@@ -39,7 +39,7 @@ sp-std = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-s
 pallet-xcm = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 
 # Nimbus
-nimbus-primitives = { git = "https://github.com/OpenZeppelin/moonkit", branch = "polkadot-branch-stable2412", default-features = false }
+nimbus-primitives = { git = "https://github.com/OpenZeppelin/moonkit", branch = "polkadot-stable2503", default-features = false }
 
 [dev-dependencies]
 bounded-collections = { version = "0.1.8", default-features = false }
