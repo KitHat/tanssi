@@ -90,3 +90,8 @@ sp-keyring = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkad
 sp-tracing = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503", default-features = false }
 substrate-test-runtime-client = { git = "https://github.com/paritytech/polkadot-sdk", tag = "polkadot-stable2503" }
 tempfile = "3.1.0"
+
+[features]
+runtime-benchmarks = [
+    "pallet-registrar-runtime-api/runtime-benchmarks"
+]
