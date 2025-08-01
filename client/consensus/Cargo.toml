@@ -93,5 +93,6 @@ tempfile = "3.1.0"
 
 [features]
 runtime-benchmarks = [
-    "pallet-registrar-runtime-api/runtime-benchmarks"
+    "pallet-registrar-runtime-api/runtime-benchmarks",
+    "pallet-xcm-core-buyer-runtime-api/runtime-benchmarks"
 ]
